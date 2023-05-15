@@ -56,7 +56,8 @@
       border: 1px solid #ccc;
       border-radius: 4px;
       margin-bottom: 10px;
-      text-align: center; /* Center alignment */
+      text-align: center;
+      /* Center alignment */
     }
 
     button[type="submit"] {
@@ -77,12 +78,22 @@
 </head>
 
 <body>
-  <div class="form-container">
-    <h1>Make a WhatsApp Call</h1>
+  <div class="app-container">
+    <h1>WhatsApp Call App</h1>
     <p id="message"></p>
     <form id="form" onsubmit="makeCall(); return false;">
       <input id="phone" type="tel" name="phone" placeholder="Enter phone number" style="padding: 10px;" />
-      <button type="submit">Submit</button>
+      <p>First Select Your Country Flag. Then Enter Your Phone Number Without Country Code and Zero.</p>
+      <p>Then Click On Make WhatsApp Call Button.</p>
+      <p>Wait For Few Seconds. </p>
+      <p>Then You Will Be Redirected To WhatsApp.</p>
+      <p>Then Click On Call Button.</p>
+      <p>Then You Will Be Redirected To WhatsApp Call.</p>
+      <p>Then You Can Talk With Your Friends.</p>
+      <p> Enjoy 😍😎🤩🤗</p>
+      <p>Example: 1966644457</p>
+
+      <button type="submit">Make WhatsApp Call</button>
     </form>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js"></script>
@@ -95,7 +106,6 @@
     function makeCall() {
       var phoneNumber = input.value;
       var url = "https://wa.me/" + phoneNumber;
-      console.log(url);
       // Open the WhatsApp call URL
       window.open(url);
     }
