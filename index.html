@@ -112,13 +112,17 @@
 <body>
   <div class="app-container">
     <h1>WhatsApp Call App</h1>
+    <input id="phone" type="tel" name="phone" placeholder="Enter phone number" style="padding: 10px;" />
     <p id="message"></p>
     <form id="form" onsubmit="makeCall(); return false;">
       <p>Enter the phone number to make a WhatsApp call:</p>
       <div id="phone-container">
         <div id="country">🌐</div>
-        <input id="phone" type="tel" name="phone" placeholder="Enter phone number" style="padding: 10px;" />
+
       </div>
+
+      <button type="submit">Make WhatsApp Call</button>
+    </form>
       <p>Follow these steps:</p>
       <ol>
         <li>Select your country flag.</li>
@@ -131,9 +135,6 @@
         <li>Talk with your friends. 😍😎🤩🤗</li>
       </ol>
       <p>Example: 1966644457</p>
-
-      <button type="submit">Make WhatsApp Call</button>
-    </form>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js"></script>
   <script>
