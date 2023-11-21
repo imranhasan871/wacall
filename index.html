@@ -10,11 +10,11 @@
     body {
       font-family: 'Arial', sans-serif;
       background-color: #f1f1f1;
-      margin: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       height: 100vh;
+      margin: 0;
     }
 
     .app-container {
@@ -42,32 +42,26 @@
       text-align: center;
       margin-bottom: 20px;
       color: #333;
+      animation: fade-in 0.6s ease;
     }
 
     #message {
       text-align: center;
       color: #ff0000;
       margin-bottom: 10px;
+      animation: fade-in 0.6s ease;
     }
 
     #form {
       display: flex;
       flex-direction: column;
+      animation: fade-in 0.6s ease;
     }
 
     #phone-container {
       display: flex;
       align-items: center;
-      margin-bottom: 10px;
-      animation: fade-in 0.6s ease;
-    }
-
-    #country {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      margin-right: 10px;
-      text-align: left;
+      margin-bottom: 20px;
       animation: fade-in 0.6s ease;
     }
 
@@ -76,7 +70,7 @@
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 4px;
-      text-align: left; /* Set text alignment to left */
+      text-align: center; /* Set text alignment to center */
       animation: fade-in 0.6s ease;
     }
 
@@ -102,31 +96,33 @@
       animation: fade-in 0.6s ease;
     }
 
-    p:last-child {
+    ol {
+      padding-left: 20px;
       margin-bottom: 20px;
     }
 
+    li {
+      margin-bottom: 10px;
+    }
+
+    li:last-child {
+      margin-bottom: 0;
+    }
   </style>
 </head>
 
 <body>
   <div class="app-container">
     <h1>WhatsApp Call App</h1>
-    <input id="phone" type="tel" name="phone" placeholder="Enter phone number" style="padding: 10px;" />
     <p id="message"></p>
     <form id="form" onsubmit="makeCall(); return false;">
-      <p>Enter the phone number to make a WhatsApp call:</p>
       <div id="phone-container">
-        <div id="country">🌐</div>
-
+        <input id="phone" type="tel" name="phone" placeholder="(+880)1966644457" style="padding: 10px;" />
       </div>
-
-      <button type="submit">Make WhatsApp Call</button>
-    </form>
       <p>Follow these steps:</p>
       <ol>
         <li>Select your country flag.</li>
-        <li>Enter your phone number without the country code and zero.</li>
+        <li><b>Enter your phone number without the country code and zero.</b></li>
         <li>Click on the 'Make WhatsApp Call' button.</li>
         <li>Wait for a few seconds.</li>
         <li>Be redirected to WhatsApp.</li>
@@ -135,24 +131,15 @@
         <li>Talk with your friends. 😍😎🤩🤗</li>
       </ol>
       <p>Example: 1966644457</p>
+
+      <button type="submit">Make WhatsApp Call</button>
+    </form>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js"></script>
   <script>
     var input = document.querySelector("#phone");
-    var countryEmoji = document.querySelector("#country");
-    var iti = window.intlTelInput(input, {
+    window.intlTelInput(input, {
       utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js",
-    });
-
-    // Populate country emoji
-    iti.promise.then(function () {
-      var countryData = iti.getSelectedCountryData();
-      countryEmoji.innerHTML = '🌐';
-    });
-
-    input.addEventListener('countrychange', function (e) {
-      var countryData = iti.getSelectedCountryData();
-      countryEmoji.innerHTML = '🌐';
     });
 
     function makeCall() {
